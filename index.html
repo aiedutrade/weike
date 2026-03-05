@@ -12,14 +12,12 @@
             box-sizing: border-box;
             font-family: "Microsoft YaHei", Arial, sans-serif;
         }
-
         /* 全局样式 */
         body {
             background-color: #f8f9fa;
             color: #333;
             line-height: 1.6;
         }
-
         /* 容器样式 - 适配不同屏幕 */
         .container {
             width: 92%;
@@ -27,7 +25,6 @@
             margin: 0 auto;
             padding: 0 15px;
         }
-
         /* 头部样式 */
         header {
             background-color: #2a6099;
@@ -35,7 +32,6 @@
             padding: 1.5rem 0;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
-
         .header-content {
             text-align: center;
         }
@@ -44,17 +40,14 @@
             font-size: 1.8rem;
             margin-bottom: 0.5rem;
         }
-
         .header-content p {
             font-size: 1rem;
             opacity: 0.9;
         }
-
         /* 主内容区 */
         main {
             padding: 2rem 0;
         }
-
         /* 视频网格布局 - 响应式设计 */
         .video-grid {
             display: grid;
@@ -62,7 +55,6 @@
             gap: 1.5rem;
             margin-top: 1rem;
         }
-
         /* 视频卡片样式 */
         .video-card {
             background-color: white;
@@ -71,12 +63,10 @@
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
         .video-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
         }
-
         /* 视频播放器区域 */
         .video-wrapper {
             position: relative;
@@ -170,6 +160,9 @@
             <div class="video-card">
                 <div class="video-wrapper">
                     <video class="video-player" controls preload="metadata">
+                       playsinline  <!-- 关键：解决iOS/微信浏览器不能内联播放的问题 -->
+                         webkit-playsinline="true"  <!-- 兼容iOS Safari -->
+                         x5-playsinline="true"  <!-- 兼容微信X5内核 -->
                         <source src="video2.mp4" type="video/mp4">
                         你的浏览器不支持HTML5视频播放，请更换现代浏览器！
                     </video>
